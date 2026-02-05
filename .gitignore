@@ -41,3 +41,8 @@ _incoming_rips/
 
 # Claude Code
 .claude/
+
+#nixos
+.direnv/
+result
+result-*
