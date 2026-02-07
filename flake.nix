@@ -2,17 +2,19 @@
   description = "Scrumpler - Audio sample processor for experimental music production";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+        };
 
-        python = pkgs.python3;
-        pythonPackages = python.pkgs;
+        # Pin to Python 3.11 for consistency with other projects
+        python = pkgs.python311;
 
         # Python dependencies
         pythonEnv = python.withPackages (ps: with ps; [
