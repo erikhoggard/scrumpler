@@ -8,7 +8,7 @@ from __future__ import annotations
 import sys
 from typing import Any
 
-from sample_processor import SampleProcessor
+from .processor import SampleProcessor
 
 
 # Type alias for preset configuration
