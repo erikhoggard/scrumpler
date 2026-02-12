@@ -107,10 +107,10 @@ class SampleProcessor:
             print(f"Error: File must be a WAV file: {filepath}")
             return
 
-        print(f"\n{'═' * 80}")
+        print(f"\n{'=' * 80}")
         print(f"Processing: {filepath.name}")
         print(f"Modes: {', '.join(modes)}")
-        print(f"{'═' * 80}")
+        print(f"{'=' * 80}")
 
         y, sr = sf.read(filepath, dtype='float32')
 
@@ -163,9 +163,9 @@ class SampleProcessor:
             # Here, the base_name is the original sanitized file stem, and the mode is passed separately for the filename
             self._save_segments(segments, mode_output_folder, sanitized_stem, mode)
         
-        print(f"\n{'═' * 80}")
+        print(f"\n{'=' * 80}")
         print(f"✓ Processing complete for: {filepath.name}. Output in: {master_output_folder}")
-        print(f"{'═' * 80}\n")
+        print(f"{'=' * 80}\n")
     
     def process_directory(self, modes: list[str], args: ProcessingArgs) -> None:
         """Process all WAV files in the input directory with specified modes."""
@@ -174,12 +174,12 @@ class SampleProcessor:
             print(f"No WAV files found in {self.input_dir}")
             return
 
-        print(f"\n{'═' * 80}")
+        print(f"\n{'=' * 80}")
         print(f"Found {len(wav_files)} WAV files for batch processing")
         print(f"Modes: {', '.join(modes)}")
         print(f"Input directory: {self.input_dir}")
         print(f"Output directory: {self.output_dir}")
-        print(f"{'═' * 80}")
+        print(f"{'=' * 80}")
 
         for filepath in wav_files:
             try:
@@ -190,9 +190,9 @@ class SampleProcessor:
                 traceback.print_exc()
                 continue
         
-        print(f"\n{'═' * 80}")
+        print(f"\n{'=' * 80}")
         print(f"✓ Batch processing complete!")
-        print(f"{'═' * 80}\n")
+        print(f"{'=' * 80}\n")
         
     def _grid_chop(self, y: AudioArray, sr: int, chunk_length: float) -> list[AudioArray]:
         """Chop audio into equal-length chunks."""
@@ -500,9 +500,9 @@ Examples:
     
     if args.bpm:
         args.chunk_length = (60.0 / args.bpm) * args.bars * 4
-        print(f"\n{'═' * 60}")
+        print(f"\n{'=' * 60}")
         print(f"Musical Grid Mode: {args.bpm} BPM, {args.bars} bars = {args.chunk_length:.3f}s chunks")
-        print(f"{'═' * 60}")
+        print(f"{'=' * 60}")
     elif args.chunk_length is None:
         args.chunk_length = 2.0
 

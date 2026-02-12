@@ -174,7 +174,7 @@ class Args:
 
 def print_presets() -> None:
     """Print all available presets."""
-    print("\n═══ Available Presets ═══\n")
+    print("\n=== Available Presets ===\n")
     for name, preset in PRESETS.items():
         print(f"  {name:16} - {preset['description']}")
     print()
@@ -199,7 +199,7 @@ def run_preset(preset_name: str, file_or_batch_arg: str | None = None) -> int:
 
     args = Args(**args_dict)
 
-    print(f"\n{'═' * 60}")
+    print(f"\n{'=' * 60}")
     print(f"Running preset: {preset_name}")
     print(f"Description: {preset['description']}")
 
@@ -207,11 +207,11 @@ def run_preset(preset_name: str, file_or_batch_arg: str | None = None) -> int:
 
     if file_or_batch_arg and file_or_batch_arg != '--batch':
         print(f"Processing: {file_or_batch_arg}")
-        print(f"{'═' * 60}\n")
+        print(f"{'=' * 60}\n")
         processor.process_single_file(file_or_batch_arg, modes, args)
     else:
         print(f"Processing: All files in {args.input}/")
-        print(f"{'═' * 60}\n")
+        print(f"{'=' * 60}\n")
         processor.process_directory(modes, args)
 
     return 0
