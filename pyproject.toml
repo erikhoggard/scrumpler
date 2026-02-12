@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "scrumpler"
-version = "0.1.0"
+version = "0.1.1"
 description = "Audio sample processor for experimental music production"
 readme = "README.md"
 requires-python = ">=3.10"

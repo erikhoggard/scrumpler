@@ -164,7 +164,7 @@ class SampleProcessor:
             self._save_segments(segments, mode_output_folder, sanitized_stem, mode)
         
         print(f"\n{'=' * 80}")
-        print(f"✓ Processing complete for: {filepath.name}. Output in: {master_output_folder}")
+        print(f"[OK] Processing complete for: {filepath.name}. Output in: {master_output_folder}")
         print(f"{'=' * 80}\n")
     
     def process_directory(self, modes: list[str], args: ProcessingArgs) -> None:
@@ -191,7 +191,7 @@ class SampleProcessor:
                 continue
         
         print(f"\n{'=' * 80}")
-        print(f"✓ Batch processing complete!")
+        print(f"[OK] Batch processing complete!")
         print(f"{'=' * 80}\n")
         
     def _grid_chop(self, y: AudioArray, sr: int, chunk_length: float) -> list[AudioArray]:
